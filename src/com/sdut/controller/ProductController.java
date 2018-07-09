@@ -83,7 +83,7 @@ public class ProductController {
 		System.out.println("***************");
 		System.out.println(pro);
 		System.out.println("***************");
-		System.out.println(imgpic.getName());
+		
 		if(!imgpic.getOriginalFilename().equals("")) {
 			System.out.println(imgpic.getOriginalFilename());
 			//将上传到的文件上传到服务器

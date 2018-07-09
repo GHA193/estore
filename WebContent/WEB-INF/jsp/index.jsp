@@ -212,7 +212,7 @@
                     <h1 style="float: left;">倾情推荐</h1>
                     <p style="float: right;">更多商品>></p>
                 </div>
-                <div class="tuijian_product" min-width="750px">
+                <div class="tuijian_product" style="min-width:750px;">
                 	<c:forEach items="${productList }" var="pro">
 	                    <div style="float:left; margin: 10px 30px;" >
 	                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">${pro.name }</h3>

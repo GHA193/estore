@@ -21,7 +21,6 @@ public class IndexController {
 		//查询商品
 		List<Products> productList = productService.findProductList();
 		
-		
 		//将查询到的商品在首页面中进行展示
 		model.addAttribute("productList", productList);
 		
@@ -32,6 +31,15 @@ public class IndexController {
 	@RequestMapping("showAdminIndex")
 	public String showAdminIndex() {
 		return "admin/index";
+	}
+	@RequestMapping("showInfoIndex")
+	public String showInfoIndex(String id, Model model) {
+		//查询商品
+		Products product = productService.findProductById(id);
+		//将查询到的商品在首页面中进行展示
+		model.addAttribute("product", product);
+		
+		return "productinfo";
 	}
 	
 }

@@ -79,31 +79,31 @@
                     <ul>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">小说</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=novel">小说</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">童书</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=cartoon">童书</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">学习考试</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=study">学习考试</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">文学</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=literature">文学</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">音乐</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=music">音乐</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">艺术</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=art">艺术</a>
                         </li>
                         <li>
                             <img src="images/plane.png" align="center">
-                            <a href="#">科技</a>
+                            <a href="${pageContext.request.contextPath }/showProductkinds?type=science">科技</a>
                         </li>
                     </ul>
                 </div>
@@ -212,79 +212,22 @@
                     <h1 style="float: left;">倾情推荐</h1>
                     <p style="float: right;">更多商品>></p>
                 </div>
-                <div class="tuijian_product">
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
-                    <div style="float:left; margin: 10px 30px;">
-                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                        <a href="#">
-                            <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                        </a>
-                        <br>
-                        <span>价格: ￥190</span>
-                        <br>
-                        <a href="#">查看详细</a>
-                        <br>
-                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                    </div>
+                <div class="tuijian_product" min-width="750px">
+                	<c:forEach items="${productList }" var="pro">
+	                    <div style="float:left; margin: 10px 30px;" >
+	                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">${pro.name }</h3>
+	                        <a href="#">
+	                            <img src="${pro.imgurl }" alt="an image" class="image" width="108px" height="100px">
+	                        </a>
+	                        <br>
+	                        <span>价格: ￥${pro.price }</span>
+	                        <br>
+	                        <a href="#">查看详细</a>
+	                        <br>
+	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
+	                    </div>
+                	</c:forEach>
+                    
                 </div>
                 <div style="float: none; margin-top: 20px;">
                     <button type="button" id="up" style="float: left;background:#87520E;line-height:30px;color:white;border:0;padding:3px 7px;font-size:15px;cursor:pointer;">上一页</button>

@@ -26,6 +26,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findProductList" resultType="com.sdut.model.Products">
 		select * from products;
 	</select>	
+	
+	<select id="findProductListByType" parameterType="string" resultType="com.sdut.model.Products">
+		select * from products where category = #{type};
+	</select>
 
 
 </mapper>

@@ -23,6 +23,12 @@ public interface ProductMapper {
 	public Products findProductById(String id);
 	
 	public List<Products> findProductList();
+	/**
+	 * 根据类别查询商品
+	 * @param type
+	 * @return
+	 */
+	public List<Products> findProductListByType(String type);
 	
 	
 	

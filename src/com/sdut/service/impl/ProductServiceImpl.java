@@ -47,6 +47,12 @@ public class ProductServiceImpl implements ProductService {
 		// TODO Auto-generated method stub
 		return productMapper.findProductList();
 	}
+
+	@Override
+	public List<Products> findProductListByType(String type) {
+		// TODO Auto-generated method stub
+		return productMapper.findProductListByType(type);
+	}
 	
 	
 

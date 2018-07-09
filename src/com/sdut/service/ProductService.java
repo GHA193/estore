@@ -18,11 +18,21 @@ public interface ProductService {
 	 * @return
 	 */
 	public int updateProduct(Products pro);
-
+	/**
+	 * 删除商品
+	 * @param id
+	 * @return
+	 */
 	public int delProduct(String id);
 	
 	public Products findProductById(String id);
 	
 	public List<Products> findProductList();
+	/**
+	 * 根据类别查询商品
+	 * @param type
+	 * @return
+	 */
+	public List<Products> findProductListByType(String type);
 	
 }

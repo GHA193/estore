@@ -98,4 +98,18 @@ public class ProductController {
 		return "redirect:showProductList";
 	}
 	
+	//打开商品展示页面
+	@RequestMapping("showProductkinds")
+	public String showProductkinds(String type, Model model) {
+		//System.out.println(type);
+		//查询要显示的类型的商品
+		List<Products> productList = proService.findProductListByType(type);
+		//将商品传递到页面进行展示
+		model.addAttribute("productList", productList);
+		
+		return "productkinds";
+	}
+	
+	
+	
 }

@@ -174,7 +174,7 @@
 		$(function() {
 			var category = transCategory('${product.category }');
 			//设置商品属性
-			$("#category").html("商品类别: " + a)
+			$("#category").html("商品类别: " + category)
 		})
 	</script>
 

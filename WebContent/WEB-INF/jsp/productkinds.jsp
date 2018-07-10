@@ -12,6 +12,8 @@
     <title>Estore图书商城</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript" src="js/check.js"></script>
 </head>
 
 <body>
@@ -166,7 +168,7 @@
 
             <div class="tuijian">
                 <div class="tuijian_top">
-                    <h1 style="float: left;">倾情推荐</h1>
+                    <h1 style="float: left;" id="tt"></h1>
                     <p style="float: right;">更多商品>></p>
                 </div>
                 <div class="tuijian_product" style="min-width:750px;">
@@ -202,7 +204,12 @@
         </p>
         <p align="center"> Copyright © 2005-2020 北京翡翠教育科技有限公司，All Rights Reserved 京ICP备12036804号-23</p>
     </div>
-
+	<script type="text/javascript">
+		$(function(){
+			var category = transCategory('${category}');
+			$("#tt").html(category);
+		})
+	</script>
 
 </body>
 

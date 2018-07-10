@@ -106,6 +106,7 @@ public class ProductController {
 		List<Products> productList = proService.findProductListByType(type);
 		//将商品传递到页面进行展示
 		model.addAttribute("productList", productList);
+		model.addAttribute("category", type);
 		
 		return "productkinds";
 	}

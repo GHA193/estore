@@ -163,7 +163,7 @@
 		</div>
 	</div>
 
-	<div class="footer1">
+	<div class="footer1" >
 		<p align="center">总部地址:北京市海淀区小南庄怡秀园甲一号亿德大厦10层 电话：010-61943240</p>
 		<p align="center">Copyright © 2005-2020 北京翡翠教育科技有限公司，All Rights
 			Reserved 京ICP备12036804号-23</p>

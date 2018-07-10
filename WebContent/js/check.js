@@ -15,19 +15,19 @@ function checknamelength(name) {
 
 function transCategory(category){
 	var s;
-	if(category.equals("novel")){
+	if(category =="novel"){
 		s="小说";
-	}else if(category.equals("cartoon")){
+	}else if(category=="cartoon"){
 		s="同属";
-	}else if(category.equals("study")){
+	}else if(category=="study"){
 		s="学习考试";
-	}else if(category.equals("literature")){
+	}else if(category=="literature"){
 		s="文学";
-	}else if(category.equals("music")){
+	}else if(category=="music"){
 		s="音乐";
-	}else if(category.equals("art")){
+	}else if(category=="art"){
 		s="艺术";
-	}else if(category.equals("science")){
+	}else if(category=="science"){
 		s="科学";
 	}
 	return s;

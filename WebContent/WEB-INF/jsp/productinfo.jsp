@@ -136,7 +136,7 @@
 					<tr class="lineH">
 						<!-- transCategory('${product.category }') -->
 						<!-- 设置商品id，使用js在页面加载的时候赋值 -->
-						<td id="c"></td>
+						<td id="category"></td>
 					</tr>
 					<tr class="lineH">
 						<td>商品数量:${product.pnum }</td>
@@ -172,9 +172,9 @@
 	<!-- 页面加载的时候就会执行 -->
 	<script type="text/javascript">
 		$(function() {
-			var a = transCategory('${product.category }');
+			var category = transCategory('${product.category }');
 			//设置商品属性
-			$("#c").html("商品类别: " + a)
+			$("#category").html("商品类别: " + a)
 		})
 	</script>
 

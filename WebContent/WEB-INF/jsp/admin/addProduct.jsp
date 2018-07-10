@@ -119,6 +119,16 @@
 										class="form-control"></textarea>
 								</div>
 							</div>
+							<!-- 商品操作 -->
+							<div class="form-group">
+								<label class="col-sm-2 control-label">商品操作</label>
+								<div class="col-sm-4">
+									<input type="radio" value="1" name="state"/>上架
+									<input type="radio" value="0" name="state"/>下架
+									
+								</div>
+							</div>
+							
 							<div class="hr-line-dashed"></div>
 
 							<div class="form-group">

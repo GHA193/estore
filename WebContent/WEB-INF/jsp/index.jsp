@@ -216,13 +216,13 @@
                 	<c:forEach items="${productList }" var="pro">
 	                    <div style="float:left; margin: 10px 30px;" >
 	                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">${pro.name }</h3>
-	                        <a href="#">
+	                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">
 	                            <img src="${pro.imgurl }" alt="an image" class="image" width="108px" height="100px">
 	                        </a>
 	                        <br>
 	                        <span>价格: ￥${pro.price }</span>
 	                        <br>
-	                        <a href="#">查看详细</a>
+	                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">查看详细</a>
 	                        <br>
 	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
 	                    </div>
@@ -240,78 +240,20 @@
                         <p style="float: right;">更多商品>></p>
                     </div>
                     <div class="new_product">
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
-                        <div style="float:left; margin: 10px 30px;">
-                            <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">Tomcat原理与Java Web系统开发</h3>
-                            <a href="#">
-                                <img src="images/book6.png" alt="an image" class="image" width="108px" height="100px">
-                            </a>
-                            <br>
-                            <span>价格: ￥190</span>
-                            <br>
-                            <a href="#">查看详细</a>
-                            <br>
-                            <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
-                        </div>
+                        <c:forEach items="${productList }" var="pro">
+		                    <div style="float:left; margin: 10px 30px;" >
+		                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">${pro.name }</h3>
+		                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">
+		                            <img src="${pro.imgurl }" alt="an image" class="image" width="108px" height="100px">
+		                        </a>
+		                        <br>
+		                        <span>价格: ￥${pro.price }</span>
+		                        <br>
+		                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">查看详细</a>
+		                        <br>
+		                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
+		                    </div>
+	                	</c:forEach>
                     </div>
                     <div style="float: none; margin-top: 20px;">
                         <button type="button" id="up" style="float: left;background:#87520E;line-height:30px;color:white;border:0;padding:3px 7px;font-size:15px;cursor:pointer;">上一页</button>

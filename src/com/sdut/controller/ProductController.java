@@ -48,7 +48,7 @@ public class ProductController {
 		//将路径保存到数据库中
 		pro.setId(UUIDUtils.getUUID());
 		pro.setImgurl(upload);
-		pro.setState(1);
+		//pro.setState(1);
 		
 		proService.saveProduct(pro);
 		

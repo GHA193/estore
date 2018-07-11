@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.sdut.dao.ProductMapper;
 import com.sdut.dao.UsersMapper;
+import com.sdut.model.PageBean;
 import com.sdut.model.Products;
 import com.sdut.model.Users;
 import com.sdut.service.ProductService;
@@ -52,6 +53,18 @@ public class ProductServiceImpl implements ProductService {
 	public List<Products> findProductListByType(String type) {
 		// TODO Auto-generated method stub
 		return productMapper.findProductListByType(type);
+	}
+
+	@Override
+	public Integer findCount() {
+		// TODO Auto-generated method stub
+		return productMapper.findCount();
+	}
+
+	@Override
+	public List<Products> findProductListPage(PageBean pageBean) {
+		// TODO Auto-generated method stub
+		return productMapper.findProductListPage(pageBean);
 	}
 	
 	

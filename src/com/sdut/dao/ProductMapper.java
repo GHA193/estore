@@ -2,6 +2,7 @@ package com.sdut.dao;
 
 import java.util.List;
 
+import com.sdut.model.PageBean;
 import com.sdut.model.Products;
 
 public interface ProductMapper {
@@ -41,6 +42,16 @@ public interface ProductMapper {
 	 * @return
 	 */
 	public List<Products> findProductListByType(String type);
+	/**
+	 * 获取商品的总记录数
+	 * @return
+	 */
+	public Integer findCount();
+	/**
+	 * 有分页功能的查询方法
+	 * @return
+	 */
+	public List<Products> findProductListPage(PageBean pageBean);
 	
 	
 	

@@ -30,6 +30,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="findProductListByType" parameterType="string" resultType="com.sdut.model.Products">
 		select * from products where category = #{type};
 	</select>
+	<select id="findCount" resultType="int">
+		select COUNT(*) from products;
+	</select>
+	<select id="findProductListPage" parameterType="com.sdut.model.PageBean" resultType="com.sdut.model.Products">
+		select * from products limit #{pianyiliang}, #{pageSize};
+	</select>
+	
 
 
 </mapper>

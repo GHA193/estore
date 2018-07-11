@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.sdut.model.PageBean;
 import com.sdut.model.Products;
 import com.sdut.service.ProductService;
 import com.sdut.utils.UUIDUtils;
@@ -100,13 +101,19 @@ public class ProductController {
 	
 	//打开商品展示页面
 	@RequestMapping("showProductkinds")
-	public String showProductkinds(String type, Model model) {
+	public String showProductkinds(String type, Model model, Integer page) {
+		
+		int count = proService.findCountByType(type);
+		System.out.println(count+"---------------");
+		
+		PageBean pageBean = new PageBean(8, page, count);
 		//System.out.println(type);
 		//查询要显示的类型的商品
-		List<Products> productList = proService.findProductListByType(type);
+		List<Products> productList = proService.findProductListByType(type,pageBean);
 		//将商品传递到页面进行展示
 		model.addAttribute("productList", productList);
 		model.addAttribute("category", type);
+		model.addAttribute("pageBean", pageBean);
 		
 		return "productkinds";
 	}

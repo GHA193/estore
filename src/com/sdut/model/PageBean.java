@@ -31,7 +31,14 @@ public class PageBean {
 	}
 
 	public void setPage(Integer page) {
-		this.page = page;
+		if (page == null || page < 1) {
+			this.page = 1;
+		} else if (page > pageCount) {
+			this.page = pageCount;
+		} else {
+
+			this.page = page;
+		}
 	}
 
 	public Integer getCount() {
@@ -74,18 +81,20 @@ public class PageBean {
 
 	/**
 	 * 
-	 * @param pageSize		每页中显示的记录数
-	 * @param page			显示的页码
-	 * @param count			总记录数
+	 * @param pageSize
+	 *            每页中显示的记录数
+	 * @param page
+	 *            显示的页码
+	 * @param count
+	 *            总记录数
 	 */
 	public PageBean(Integer pageSize, Integer page, Integer count) {
+
 		this.pageSize = pageSize;
-		this.page = page;
 		this.count = count;
-		setPianyiliang();
 		setPageCount();
+		setPage(page);
+		setPianyiliang();
 	}
-	
-	
 
 }

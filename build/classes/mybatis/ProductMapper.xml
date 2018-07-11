@@ -27,14 +27,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from products;
 	</select>	
 	
-	<select id="findProductListByType" parameterType="string" resultType="com.sdut.model.Products">
-		select * from products where category = #{type};
+	<select id="findProductListByType" resultType="com.sdut.model.Products">
+		select * from products where category = #{param1} limit #{param2.pianyiliang}, #{param2.pageSize};
 	</select>
 	<select id="findCount" resultType="int">
 		select COUNT(*) from products;
 	</select>
 	<select id="findProductListPage" parameterType="com.sdut.model.PageBean" resultType="com.sdut.model.Products">
 		select * from products limit #{pianyiliang}, #{pageSize};
+	</select>
+	<select id="findCountByType" parameterType="string" resultType="int">
+		select COUNT(*) from products where category = #{type};
 	</select>
 	
 

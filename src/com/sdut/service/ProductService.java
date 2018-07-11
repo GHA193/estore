@@ -42,7 +42,7 @@ public interface ProductService {
 	 * @param type
 	 * @return
 	 */
-	public List<Products> findProductListByType(String type);
+	public List<Products> findProductListByType(String type, PageBean pageBean);
 	/**
 	 * 获取商品的总记录数
 	 * @return
@@ -54,5 +54,11 @@ public interface ProductService {
 	 * @return
 	 */
 	public List<Products> findProductListPage(PageBean pageBean);
+	/**
+	 * 根据类型查询商品数量
+	 * @param type
+	 * @return
+	 */
+	public int findCountByType(String type);
 	
 }

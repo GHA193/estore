@@ -18,14 +18,14 @@ public class IndexController {
 	private ProductService productService;
 
 	@RequestMapping("showIndex")
-	public String showIndex(Model model) {
+	public String showIndex(Model model, Integer page) {
 		
-		return showIndex1(model);
+		return showIndex1(model,page);
 	}
 
 	// 设置默认访问问题
 	@RequestMapping("/")
-	public String showIndex1(Model model) {
+	public String showIndex1(Model model, Integer page) {
 		// 查询商品
 		// List<Products> productList = productService.findProductList();
 
@@ -34,13 +34,14 @@ public class IndexController {
 		System.out.println(count);
 
 		// 创建pageBean对象，设置页面内容
-		PageBean pageBean = new PageBean(8, 1, count);
+		PageBean pageBean = new PageBean(8, page, count);
 		System.out.println(pageBean);
 
 		// 调用具有分页功能的查询方法
 		List<Products> productList = productService.findProductListPage(pageBean);
 		// 将查询到的商品在首页面中进行展示
 		model.addAttribute("productList", productList);
+		model.addAttribute("pageBean", pageBean);
 
 		return "index";
 	}

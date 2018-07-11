@@ -12,6 +12,7 @@
     <title>Estore图书商城</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
 </head>
 
 <body>
@@ -224,7 +225,7 @@
 	                        <br>
 	                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">查看详细</a>
 	                        <br>
-	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
+	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;" onclick="addCart('${pro.id }')">加入购物车</button>
 	                    </div>
                 	</c:forEach>
                     
@@ -271,7 +272,26 @@
         </p>
         <p align="center"> Copyright © 2005-2020 北京翡翠教育科技有限公司，All Rights Reserved 京ICP备12036804号-23</p>
     </div>
-
+	<script type="text/javascript">
+		//加入购物车
+		function addCart(id){
+			//alert(id);
+			$.ajax({
+				url:"${pageContext.request.contextPath}/addCart",
+				data:{"id":id},
+				type:"post",
+				dataType:"json",
+				success:function(data){
+					if(data.msg=="true"){
+						alert("加入购物车成功");
+					}
+				}
+					
+			});
+			
+			
+		}
+	</script>
 
 </body>
 

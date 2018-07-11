@@ -6,7 +6,7 @@
 	<display-name>estore</display-name>
 	
 	<welcome-file-list>
-		<welcome-file>/WEB-INF/jsp/index.jsp</welcome-file>
+		<welcome-file>/</welcome-file>
 	</welcome-file-list>
 	
 	<!-- springmvc前端控制器 -->

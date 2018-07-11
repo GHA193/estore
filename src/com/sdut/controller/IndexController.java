@@ -28,6 +28,19 @@ public class IndexController {
 		return "index";
 	}
 	
+	//设置默认访问问题
+	@RequestMapping("/")
+	public String showIndex1(Model model) {
+		//查询商品
+		List<Products> productList = productService.findProductList();
+		
+		//将查询到的商品在首页面中进行展示
+		model.addAttribute("productList", productList);
+		
+		
+		return "index";
+	}
+	
 	@RequestMapping("showAdminIndex")
 	public String showAdminIndex(String id) {
 		Products product = productService.findProductById(id);

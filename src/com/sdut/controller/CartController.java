@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.sdut.model.Products;
 import com.sdut.service.ProductService;
+import com.sdut.utils.ProductUtils;
 
 @Controller
 public class CartController {
@@ -46,19 +47,16 @@ public class CartController {
 		} else {
 			// 判断要加入购物车的商品是否存在在购物车中
 			Set<Products> keySet = cart.keySet();
-			System.out.println(keySet);
-			boolean flag = false;
-			for (Products products : keySet) {
-				if (products.getId().equals(id)) {
-					product = products;
-					break;
-				}
-			}
+			product = ProductUtils.findProduct(keySet, id);
 			if (product == null) {
 				product = service.findProductById(id);
 				cart.put(product, 1);
 			} else {
-				cart.put(product, cart.get(product) + 1);
+				if(cart.get(product)<product.getPnum()) {
+					cart.put(product, cart.get(product) + 1);					
+				}else {
+					return "{\"msg\":\"full\"}";
+				}
 			}
 		}
 
@@ -66,6 +64,27 @@ public class CartController {
 		session.setAttribute("cart", cart);
 
 		return "{\"msg\":\"true\"}";
+	}
+	
+	// 修改购物车
+	@RequestMapping("updateCart")
+	public String updateCart(String id, Integer count,HttpServletRequest request) {
+		//获取到购物车对象
+		HttpSession session = request.getSession();
+		Map<Products, Integer> cart = (Map<Products, Integer>) session.getAttribute("cart");
+		
+		Set<Products> keySet = cart.keySet();
+		Products product = ProductUtils.findProduct(keySet, id);
+		
+		cart.put(product, count);
+		
+		if(count==0) {
+			cart.remove(product);
+		}
+		
+		session.setAttribute("cart", cart);
+		
+		return "redirect:showCart";
 	}
 
 }

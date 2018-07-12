@@ -20,25 +20,20 @@
 			<div class="topbar_content_right">
 				<ul>
 					<c:if test="${empty user }">
-	                    <li>
-	                        <a href="${pageContext.request.contextPath}/showLogin" style="color:rgb(241, 187, 10)">亲，请登录</a>
-	                    </li>
-	                    <li>
-                        	<a href="${pageContext.request.contextPath}/showReg" style="color: rgb(241, 187, 10)">免费注册</a>
-                    	</li>
-                	</c:if>
-                	<c:if test="${!empty user }">
-	                    <li>
-	                        <a href="#" style="color:rgb(241, 187, 10)">${user.nickname }</a>
-	                    </li>
-	                    <li>
-                        	<a href="${pageContext.request.contextPath}/logout" style="color: rgb(241, 187, 10)">退出登录</a>
-                    	</li>
-                	</c:if>
-                    
-                    <li>
-                        <a href="${pageContext.request.contextPath}/showIndex">首页</a>
-                    </li>
+						<li><a href="${pageContext.request.contextPath}/showLogin"
+							style="color: rgb(241, 187, 10)">亲，请登录</a></li>
+						<li><a href="${pageContext.request.contextPath}/showReg"
+							style="color: rgb(241, 187, 10)">免费注册</a></li>
+					</c:if>
+					<c:if test="${!empty user }">
+						<li><a href="#" style="color: rgb(241, 187, 10)">${user.nickname }</a>
+						</li>
+						<li><a href="${pageContext.request.contextPath}/logout"
+							style="color: rgb(241, 187, 10)">退出登录</a></li>
+					</c:if>
+
+					<li><a href="${pageContext.request.contextPath}/showIndex">首页</a>
+					</li>
 					<li>|</li>
 					<li><a href="${pageContext.request.contextPath}/showCart">购物车</a></li>
 					<li>|</li>
@@ -78,34 +73,57 @@
 			</c:if>
 			<c:if test="${!empty cart }">
 				<table border="1" class="maintable">
-
+					<!-- 
+						jsp九大内置对象
+							四大域对象
+								pageContext:配置域，只在当前页面有效
+								request:在同一个请求当中有效
+								session:在同一个会话当中有效
+								application:在当前web应用中有效
+									类型是：ServletContext，表示当前的web应用，只有一个
+									
+							page
+							config
+							out
+							response
+							exception
+					 -->
+					 <%
+					 	//java程序片
+					 	//jsp：就是一个servlet，当一次访问jsp时，web服务器会将jsp转换为Java文件，将java文件转换为字节码文件，再运行
+					 %>
+					<c:set var="money" value="0"></c:set>
+					
 					<c:forEach items="${cart }" var="pro">
 						<tr>
 							<td style="width: 25%;">商品名称:${pro.key.name }</td>
 							<td style="width: 25%;">商品单价:${pro.key.price }</td>
-							<td style="width: 22%;"><input type="button" value="-"
-								onclick="changeCount('482b5255-741d-4466-8596-26b68db91dbb','3','95')"
-								class="btn">
+							<td style="width: 22%;">
+								<input type="button" value="-"
+								onclick="changeCount('${pro.key.id }','${pro.value-1 }',${pro.key.pnum })"
+								class="btn"> 
+								
 								<input type='text' value="${pro.value }"
 								style="text-align: center; color: #87520E; width: 120px; height: 25px;"
 								onkeydown="numbText(event);"
-								onblur="changeCount('482b5255-741d-4466-8596-26b68db91dbb',this.value,'95')">
+								onblur="changeCount('${pro.key.id }',this.value,${pro.key.pnum })">
 
 								<input type="button" value='+'
-								onclick="changeCount('482b5255-741d-4466-8596-26b68db91dbb','5','95')"
+								onclick="changeCount('${pro.key.id }','${pro.value+1 }',${pro.key.pnum })"
 								class="btn"></td>
 
 
 							<td style="width: 20%;">可购买数量:${pro.key.pnum }</td>
 							<td><a
-								href="/bb/cart?method=remove&id=482b5255-741d-4466-8596-26b68db91dbb"
-								onclick="delConfirm(event)">删除</a></td>
+								href="${pageContext.request.contextPath}/updateCart?id=${pro.key.id }&count=0"
+								onclick="changeCount('${pro.key.id }',0,${pro.key.pnum })">删除</a></td>
 						</tr>
+						<c:set var="money" value="${pro.key.price * pro.value + money }"></c:set>
 
 					</c:forEach>
 
 					<tr>
-						<td colspan="5" align="right">总价:￥720.0元</td>
+						<td colspan="5" align="right">总价:￥${money }元</td>
 					</tr>
 					<tr>
 						<td colspan="5" align="right">
@@ -116,7 +134,7 @@
 				</table>
 
 			</c:if>
-			
+
 
 		</div>
 
@@ -131,7 +149,26 @@
 		<p align="center">Copyright © 2005-2020 北京翡翠教育科技有限公司，All Rights
 			Reserved 京ICP备12036804号-23</p>
 	</div>
-
+	<script type="text/javascript">
+		function changeCount(id,count,maxnum) {
+			if(count<0){
+				count = 1;
+			}
+			if(count>maxnum){
+				alert("最多购买"+maxnum+"件");
+				count = maxnum;
+			}
+			if(count==0){
+				var f = confirm("确定删除商品？");
+				if(!f){
+					return;
+				}
+			}
+			
+			window.location.href="${pageContext.request.contextPath}/updateCart?id="+id+"&count="+count;
+			
+		}
+	</script>
 
 </body>
 

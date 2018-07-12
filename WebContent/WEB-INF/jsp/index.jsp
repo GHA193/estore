@@ -48,7 +48,7 @@
                     </li>
                     <li>|</li>
                     <li>
-                        <a href="#">购物车</a>
+                        <a href="${pageContext.request.contextPath}/showCart">购物车</a>
                     </li>
                     <li>|</li>
                     <li>

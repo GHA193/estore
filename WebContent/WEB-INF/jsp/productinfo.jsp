@@ -43,7 +43,7 @@
 					<li><a href="${pageContext.request.contextPath}/showIndex">首页</a>
 					</li>
 					<li>|</li>
-					<li><a href="#">购物车</a></li>
+					<li><a href="${pageContext.request.contextPath}/showCart">购物车</a></li>
 					<li>|</li>
 					<li><a href="#">我的订单</a></li>
 				</ul>

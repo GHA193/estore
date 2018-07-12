@@ -47,7 +47,7 @@
 
 		<div align="center" id="cart">
 
-			<form action="/bb/order" method="post">
+			<form action="${pageContext.request.contextPath}/createOrder" method="post">
 
 				<table id="ordertable" width="400px" border="1">
 					<tbody>

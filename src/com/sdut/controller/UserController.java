@@ -94,6 +94,8 @@ public class UserController {
 			model.addAttribute("msg","用户名或密码错误");
 		}else if(type != null && type.equals("0")) {
 			model.addAttribute("msg","");
+		}else if(type != null && type.equals("3")) {
+			model.addAttribute("msg","没有登录请登录");
 		}
 		return "login";
 	}

@@ -106,7 +106,7 @@
 								<input type='text' value="${pro.value }"
 								style="text-align: center; color: #87520E; width: 120px; height: 25px;"
 								onkeydown="numbText(event);"
-								onblur="changeCount('${pro.key.id }',this.value,${pro.key.pnum })">
+								onchange="changeCount('${pro.key.id }',this.value,${pro.key.pnum })">
 
 								<input type="button" value='+'
 								onclick="changeCount('${pro.key.id }','${pro.value+1 }',${pro.key.pnum })"
@@ -167,6 +167,10 @@
 			
 			window.location.href="${pageContext.request.contextPath}/updateCart?id="+id+"&count="+count;
 			
+		}
+		
+		function gotoorder(){
+			window.location.href="${pageContext.request.contextPath}/showCreateOrder";
 		}
 	</script>
 

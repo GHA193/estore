@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/public.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/addcart.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/onlinestate.js"></script>
 </head>
 
 <body>
@@ -70,8 +71,10 @@
                 <font size="2">Hi!你好</font>
                 <br/>
                 <br/>
-                <button>注册</button>
-                <button>登录</button>
+                <c:if test="${empty user }">
+	                <button onclick="reg()">注册</button>
+	                <button onclick="login()">登录</button>
+                </c:if>
             </div>
         </div>
         <aside class="leftaside">

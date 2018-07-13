@@ -15,6 +15,7 @@
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/check.js"></script>
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/addcart.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/onlinestate.js"></script>
 </head>
 
 <body>
@@ -71,8 +72,10 @@
                 <font size="2">Hi!你好</font>
                 <br/>
                 <br/>
-                <button>注册</button>
-                <button>登录</button>
+                <c:if test="${empty user }">
+	                <button onclick="reg()">注册</button>
+	                <button onclick="login()">登录</button>
+                </c:if>
             </div>
         </div>
         <aside class="leftaside">
@@ -180,7 +183,7 @@
                 	<c:forEach items="${productList }" var="pro">
 	                    <div style="float:left; margin: 10px 30px;" >
 	                        <h3 style="overflow:hidden;width:110px;text-overflow:ellipsis;white-space: nowrap;">${pro.name }</h3>
-	                        <a href="#">
+	                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">
 	                            <img src="${pro.imgurl }" alt="an image" class="image" width="108px" height="100px">
 	                        </a>
 	                        <br>

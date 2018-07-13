@@ -19,11 +19,21 @@
 			<div class="topbar_content_left">欢迎光临Estore图书商城</div>
 			<div class="topbar_content_right">
 				<ul>
-					<li><a href="#" style="color: rgb(241, 187, 10)">亲，请登录</a></li>
-					<li><a href="#" style="color: rgb(241, 187, 10)">免费注册</a></li>
-					<li><a href="#">首页</a></li>
+					<c:if test="${empty user }">
+						<li><a href="${pageContext.request.contextPath}/showLogin"
+							style="color: rgb(241, 187, 10)">亲，请登录</a></li>
+						<li><a href="${pageContext.request.contextPath}/showReg"
+							style="color: rgb(241, 187, 10)">免费注册</a></li>
+					</c:if>
+					<c:if test="${!empty user }">
+						<li><a href="#" style="color: rgb(241, 187, 10)">${user.nickname }</a>
+						</li>
+						<li><a href="${pageContext.request.contextPath}/logout"
+							style="color: rgb(241, 187, 10)">退出登录</a></li>
+					</c:if>
+					<li><a href="${pageContext.request.contextPath}/showIndex">首页</a></li>
 					<li>|</li>
-					<li><a href="#">购物车</a></li>
+					<li><a href="${pageContext.request.contextPath}/showCart">购物车</a></li>
 					<li>|</li>
 					<li><a href="#">我的订单</a></li>
 				</ul>

@@ -98,12 +98,15 @@ public class AutoLoginFilter implements Filter {
 						session.setAttribute("user", user2);
 					}
 				} else {
+					System.out.println("*******************************");
 					// 如果是订单请求，用户必须登录
 					if (uri.indexOf("order") != -1 || uri.indexOf("Order") != -1) {
+						System.out.println("-----------------------------");
 						// 跳转到登录界面,这里使用重定向，因为没有带参数
 
 						// 最原始的重定向方式
 						response.sendRedirect("showLogin?type=3");
+						return;
 
 						// 请求转发的方式
 						// request.getRequestDispatcher("").forward(request, response);

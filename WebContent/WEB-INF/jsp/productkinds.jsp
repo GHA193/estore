@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="css/public.css">
     <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
     <script type="text/javascript" src="js/check.js"></script>
+    <script type="text/javascript" src="${pageContext.request.contextPath}/js/addcart.js"></script>
 </head>
 
 <body>
@@ -150,8 +151,12 @@
                 <div class="menu">
                     <ul>
                         <li style="background: #87520E;font-weight: 900;font-size: 18px;color: #fff">导航菜单</li>
-                        <li class="aa">主页</li>
-                        <li class="aa">我的购物车</li>
+                        <li class="aa">
+                        	<a href="${pageContext.request.contextPath}/showIndex">首页</a>
+                        </li>
+                        <li class="aa">
+                        	<a href="${pageContext.request.contextPath}/showCart">我的购物车</a>
+                        </li>
                         <li class="aa">我的订单</li>
                         <li class="aa">下载榜单</li>
                         <li class="aa">关于我们</li>
@@ -183,7 +188,7 @@
 	                        <br>
 	                        <a href="${pageContext.request.contextPath}/showInfoIndex?id=${pro.id }">查看详细</a>
 	                        <br>
-	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;">加入购物车</button>
+	                        <button style="background:#87520E;color:white;line-height:15px;font-size:13px;border-radius:5px;border:#87520E;cursor:pointer;" onclick="addCart('${pro.id }')">加入购物车</button>
 	                    </div>
                 	</c:forEach>
                     

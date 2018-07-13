@@ -76,5 +76,6 @@ public class OrderController {
 		
 		//结算完成暂时跳转到首页，订单结算功能到此为止
 		return "redirect:showIndex";
+//		return "index";
 	}
 }

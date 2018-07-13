@@ -16,6 +16,7 @@
 	//引入check脚本，判断类型
 </script>
 <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/addcart.js"></script>
 </head>
 
 <body>
@@ -148,7 +149,7 @@
 
 					<tr>
 						<td colspan="2"><button
-								onclick="addProductToCart('482b5255-741d-4466-8596-26b68db91dbb')"
+								onclick="addCart('${product.id }')"
 								style="background: #87520E; color: white; line-height: 30px; font-size: 18px; border-radius: 5px; border: #87520E; padding: 5px 40px; cursor: pointer;">加入购物车</button></td>
 					</tr>
 				</table>

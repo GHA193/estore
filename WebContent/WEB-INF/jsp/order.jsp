@@ -81,7 +81,7 @@
 							</td>
 						</tr>
 						<tr>
-							<td>订单总价:${money }元 <input value="279.0" name="money" type="hidden"> 
+							<td>订单总价:${money }元 <input value="${money }" name="money" type="hidden"> 
 								<input value="生成订单"
 								style="background: #87520E; border: none; cursor: pointer; color: white; border-radius: 5px; line-height: 30px; padding: 5px 30px; font-size: 19px; float: right;"
 								type="submit">

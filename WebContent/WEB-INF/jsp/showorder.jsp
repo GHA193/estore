@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>购物车</title>
+    <title>我的订单</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/public.css">
     <script type="text/javascript" src="${pageContext.request.contextPath}/js/onlinestate.js"></script>
@@ -78,120 +78,52 @@
                         <td>订单操作</td>
                     </tr>
 
+					<c:if test="${empty list }">
+						<tr><td colspan="4">没有订单信息</td></tr>
+					</c:if>
+					<c:if test="${!empty list }">
+						<c:forEach items="${list }" var="order">
+		                    <tr>
+		                        <td width="26%">${order.id }</td>
+		                        <td width="50%">
+		                            <table style="border-collapse: collapse;border:#f8e49b;width:100%;text-align:center;" border="1">
+		                                <tbody>
+		                                    <tr style="background:#87520E;color:white;line-height:35x;border:white solid 1px;">
+		                                        <td  width="45%">商品名称</td>
+		                                        <td  width="20%">商品单价</td>
+		                                        <td  width="20%">购买数量</td>
+		                                        <td >总价</td>
+		                                    </tr>
+											
+											<c:forEach items="${order.orderItems }" var="item" varStatus="count">
+												<tr>
+			                                        <td>${item.product.name }</td>
+			                                        <td>${item.product.price }</td>
+			                                        <td>${item.buynum }</td>
+			                                        <c:if test="${count.count==1 }">
+			                                        	<td rowspan="10">${order.money }</td>
+			                                        </c:if>
+			                                    </tr>
+											</c:forEach>
+		
+		                                </tbody>
+		                            </table>
+		                        </td>
+		                        <td>
+		                            <a href="/bb/pay.jsp?id=a5f10151-6841-4e13-a4c3-570af3d8968f&amp;money=279.0">${order.paystate }</a>
+		                        </td>
+		                       
+		
+		                        <td>
+		                            <a href="/bb/order?method=del&amp;id=a5f10151-6841-4e13-a4c3-570af3d8968f">取消订单</a>
+		                        </td>
+		
+		
+		                    </tr>
+						</c:forEach>
+					</c:if>
 
-
-                    <tr>
-                        <td width="26%">a5f1015168414e13a4c3570af3d8968f</td>
-                        <td width="50%">
-                            <table style="border-collapse: collapse;border:#f8e49b;width:100%;text-align:center;" border="1">
-                                <tbody>
-                                    <tr style="background:#87520E;color:white;line-height:35x;border:white solid 1px;">
-                                        <td  width="45%">商品名称</td>
-                                        <td  width="20%">商品单价</td>
-                                        <td  width="20%">购买数量</td>
-                                        <td >总价</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Spring技术内幕:深入解析Spring架构与设计原理</td>
-                                        <td>180.0</td>
-                                        <td>1</td>
-                                        <td>279.0</td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>java编程思想</td>
-                                        <td>99.0</td>
-                                        <td>1</td>
-                                        <td>279.0</td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <a href="/bb/pay.jsp?id=a5f10151-6841-4e13-a4c3-570af3d8968f&amp;money=279.0">未支付</a>
-                        </td>
-                       
-
-                        <td>
-                            <a href="/bb/order?method=del&amp;id=a5f10151-6841-4e13-a4c3-570af3d8968f">取消订单</a>
-                        </td>
-
-
-                    </tr>
-                    <tr>
-                        <td width="26%">c6905f96366d473fb531b31a6a347712</td>
-                        <td width="50%">
-                            <table style="border-collapse: collapse;border:#f8e49b;width:100%;text-align:center;" border="1">
-                                <tbody>
-                                    <tr style="background:#87520E;color:white;line-height:35x;border:white solid 1px;">
-                                        <td  width="45%">商品名称</td>
-                                        <td  width="20%">商品单价</td>
-                                        <td  width="20%">购买数量</td>
-                                        <td >总价</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Spring技术内幕:深入解析Spring架构与设计原理</td>
-                                        <td>180.0</td>
-                                        <td>1</td>
-                                        <td>1800.0</td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            已支付
-                        </td>
-                       
-
-                        <td>
-                            <a href="/bb/order?method=del&amp;id=c6905f96-366d-473f-b531-b31a6a347712">取消订单</a>
-                        </td>
-
-
-                    </tr>
-                    <tr>
-                        <td width="26%">3f2f212e1512490eb9efd03a5381f963</td>
-                        <td width="50%">
-                            <table style="border-collapse: collapse;border:#f8e49b;width:100%;text-align:center;" border="1">
-                                <tbody>
-                                    <tr style="background:#87520E;color:white;line-height:35x;border:white solid 1px;">
-                                        <td  width="45%">商品名称</td>
-                                        <td  width="20%">商品单价</td>
-                                        <td  width="20%">购买数量</td>
-                                        <td  >总价</td>
-                                    </tr>
-
-
-                                    <tr>
-                                        <td>Spring技术内幕:深入解析Spring架构与设计原理</td>
-                                        <td>180.0</td>
-                                        <td>1</td>
-                                        <td>180.0</td>
-                                    </tr>
-
-
-                                </tbody>
-                            </table>
-                        </td>
-                        <td>
-                            <a href="/bb/pay.jsp?id=3f2f212e-1512-490e-b9ef-d03a5381f963&amp;money=180.0">未支付</a>
-                        </td>
-                       
-
-                        <td>
-                            <a href="/bb/order?method=del&amp;id=3f2f212e-1512-490e-b9ef-d03a5381f963">取消订单</a>
-                        </td>
-
-
-                    </tr>
+                    
                    
                 </tbody>
             </table>

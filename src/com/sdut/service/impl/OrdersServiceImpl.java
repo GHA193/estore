@@ -37,4 +37,11 @@ public class OrdersServiceImpl implements OrdersService {
 		return num;
 	}
 
+
+	@Override
+	public List<Orders> findOrdersByUserId(int id) {
+		// TODO Auto-generated method stub
+		return mapper.findOrdersByUserId(id);
+	}
+
 }

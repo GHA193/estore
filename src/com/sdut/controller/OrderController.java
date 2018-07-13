@@ -23,59 +23,83 @@ import com.sdut.utils.UUIDUtils;
 
 /**
  * 打开订单生成页面
+ * 
  * @author Administrator
  *
  */
 @Controller
 public class OrderController {
-	
+
 	@Autowired
 	private OrdersService service;
-	
-	//打开创建订单页面
+
+	// 打开创建订单页面
 	@RequestMapping("showCreateOrder")
 	public String showCreateOrder() {
-		
+
 		return "order";
 	}
-	
-	//生成订单
+
+	// 生成订单
 	@RequestMapping("createOrder")
-	public String createOrder(Orders order,HttpServletRequest request) {
+	public String createOrder(Orders order, HttpServletRequest request) {
 		System.out.println(order);
-		//只获取到了金额和收货地信息，补充订单的其他信息
+		// 只获取到了金额和收货地信息，补充订单的其他信息
 		String id = UUIDUtils.getUUID();
 		order.setId(id);
 		order.setOrdertime(DateUtils.formatDate(new Date()));
-		order.setPaystate(0);//0  未支付  1已支付
+		order.setPaystate(0);// 0 未支付 1已支付
 		HttpSession session = request.getSession();
 		Users user = (Users) session.getAttribute("user");
 		order.setUserId(user.getId());
-		
-		//获取购物车信息
+
+		// 获取购物车信息
 		Map<Products, Integer> cart = (Map<Products, Integer>) session.getAttribute("cart");
 		Set<Products> keySet = cart.keySet();
-		
+
 		List<OrderItem> items = new ArrayList<OrderItem>();
-		
+
 		for (Products products : keySet) {
-			//设置订单项信息
+			// 设置订单项信息
 			OrderItem item = new OrderItem();
 			item.setOrderId(id);
 			item.setProductId(products.getId());
 			item.setBuynum(cart.get(products));
-			
+
 			items.add(item);
 		}
 		order.setOrderItems(items);
-		
+
 		service.saveOrders(order);
-		
+
 		session.removeAttribute("cart");
-		
-		
-		//结算完成暂时跳转到首页，订单结算功能到此为止
+
+		// 结算完成暂时跳转到首页，订单结算功能到此为止
 		return "redirect:showIndex";
-//		return "index";
+		// return "index";
+	}
+
+	// 打开创建订单页面
+	@RequestMapping("showOrders")
+	public String showOrders(HttpServletRequest request) {
+		//查询当前用户所有的订单
+		Users user = (Users) request.getSession().getAttribute("user");
+		
+		List<Orders> list = service.findOrdersByUserId(user.getId());
+//		for (Orders orders : list) {
+//			System.out.println(orders);
+//			System.out.println("----------------");
+//			List<OrderItem> orderItems = orders.getOrderItems();
+//			for (OrderItem orderItem : orderItems) {
+//				System.out.println(orderItem.getProduct());
+//				System.out.println("-----------");
+//			}
+//		}
+		
+		//将查到的信息传到页面
+		request.setAttribute("list", list);
+		
+		
+		return "showorder";
 	}
 }

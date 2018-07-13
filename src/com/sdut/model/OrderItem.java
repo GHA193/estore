@@ -4,6 +4,18 @@ public class OrderItem {
 	private String orderId;
 	private String productId;
 	private Integer buynum;
+	
+	//一对一映射
+	private Products product;
+	
+	
+	
+	public Products getProduct() {
+		return product;
+	}
+	public void setProduct(Products product) {
+		this.product = product;
+	}
 	public String getOrderId() {
 		return orderId;
 	}
@@ -22,11 +34,12 @@ public class OrderItem {
 	public void setBuynum(Integer buynum) {
 		this.buynum = buynum;
 	}
+	
 	@Override
 	public String toString() {
-		return "OrderItem [orderId=" + orderId + ", productId=" + productId + ", buynum=" + buynum + "]";
+		return "OrderItem [orderId=" + orderId + ", productId=" + productId + ", buynum=" + buynum + ", product="
+				+ product + "]";
 	}
-	
 	public OrderItem() {
 		
 	}
